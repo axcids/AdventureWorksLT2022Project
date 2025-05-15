@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Customers\Customers.csproj" />
+    <ProjectReference Include="..\EnigeeringEmployeeBasicInfo\EnigeeringEmployeeBasicInfo.csproj" />
   </ItemGroup>
 
 </Project>

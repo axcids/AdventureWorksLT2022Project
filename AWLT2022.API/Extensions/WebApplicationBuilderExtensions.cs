@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Customers.Services;
+using EnigeeringEmployeeBasicInfo.Services;
+using Microsoft.OpenApi.Models;
 
 namespace AWLT2022.API.Extensions {
     public static class WebApplicationBuilderExtensions {
@@ -10,11 +12,10 @@ namespace AWLT2022.API.Extensions {
             });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddAuthentication();
-
-            builder.Services.AddScoped<Customers.Services.CustomerService>(sp => {
-                var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-                return new Customers.Services.CustomerService(connectionString);
-            });
+            
+            // Add the services 
+            builder.Services.AddScoped<CustomerService>();
+            builder.Services.AddScoped<GetEnigeeringEmployeeBasicInfo>();
 
         }
     }

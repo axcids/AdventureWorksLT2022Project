@@ -1,5 +1,6 @@
 ﻿using Customers.ObjectModels;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System.Text;
 
 namespace Customers.Services; 
@@ -7,8 +8,8 @@ public class CustomerService {
 
     private string _connectionString;
 
-    public CustomerService(string ConnectionString) {
-        _connectionString = ConnectionString;
+    public CustomerService(IConfiguration configuration) {
+        _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
     public async Task<List<Output>> GetAllCustomers() {
         using (var connection = new SqlConnection(_connectionString)) {

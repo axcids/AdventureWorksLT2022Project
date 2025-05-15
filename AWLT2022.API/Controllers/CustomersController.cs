@@ -2,6 +2,8 @@
 
 namespace AWLT2022.API.Controllers;
 public class CustomersController : Controller {
+
+
     [HttpGet]
     [Route("GetAllCustomers")]
     public async Task<IActionResult> GetAllCustomers() {
